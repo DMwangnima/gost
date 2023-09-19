@@ -18,6 +18,7 @@
 package gxzookeeper
 
 import (
+	"fmt"
 	"path"
 	"strings"
 	"sync"
@@ -386,6 +387,7 @@ func (z *ZookeeperClient) CreateTempWithValue(basePath string, value []byte) err
 
 // Delete will delete basePath
 func (z *ZookeeperClient) Delete(basePath string) error {
+	fmt.Printf("======Client delete %s======\n", basePath)
 	conn := z.getConn()
 	if conn == nil {
 		return ErrNilZkClientConn
